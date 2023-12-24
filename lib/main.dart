@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_starbucks_ui_clone/widget/star_point.dart';
 import 'package:lottie/lottie.dart';
 
 void main() {
@@ -34,37 +35,51 @@ class Starbucks extends StatelessWidget {
             pinned: false,
             snap: false,
             floating: false,
-            expandedHeight: 180.0,
+            expandedHeight: 250.0,
             flexibleSpace: FlexibleSpaceBar(
               background: Stack(
                 children: [
                   Lottie.asset(
                     'asset/background.json',
                     fit: BoxFit.contain,
-
                   ),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 24),
-                    child: SizedBox(
-                      height: 210,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.only(bottom: 24),
-                            child: Text(
-                              '스타벅스 캘린더와 함께\n다가오는 한 해를 준비해요',
-                              style: TextStyle(color: Colors.black, fontSize: 24, fontWeight: FontWeight.w600),
-                            ),
+                  const Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Flexible(
+                        flex: 4,
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 24),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.only(bottom: 24),
+                                child: Text(
+                                  '스타벅스 캘린더와 함께\n다가오는 한 해를 준비해요',
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                              ),
+                              Text(
+                                '내용 보기 ->',
+                                style: TextStyle(
+                                    color: Colors.black54,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w600),
+                              )
+                            ],
                           ),
-                          Text(
-                            '내용 보기 ->',
-                            style: TextStyle(color: Colors.black54, fontSize: 16, fontWeight: FontWeight.w600),
-                          )
-                        ],
+                        ),
                       ),
-                    ),
+                      Flexible(
+                        flex: 1,
+                        child: StarPoint(),
+                      )
+                    ],
                   ),
                 ],
               ),
