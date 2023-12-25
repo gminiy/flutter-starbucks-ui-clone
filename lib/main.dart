@@ -36,7 +36,9 @@ class Starbucks extends StatelessWidget {
             snap: false,
             floating: false,
             expandedHeight: 250.0,
+
             flexibleSpace: FlexibleSpaceBar(
+              collapseMode: CollapseMode.pin,
               background: Stack(
                 children: [
                   Lottie.asset(
