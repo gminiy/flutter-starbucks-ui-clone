@@ -36,7 +36,6 @@ class Starbucks extends StatelessWidget {
             snap: false,
             floating: false,
             expandedHeight: 250.0,
-
             flexibleSpace: FlexibleSpaceBar(
               collapseMode: CollapseMode.pin,
               background: Stack(
@@ -89,10 +88,40 @@ class Starbucks extends StatelessWidget {
           ),
           const SliverAppBar(
             pinned: true,
-            snap: false,
-            floating: false,
-            backgroundColor: Colors.blue,
-            title: Text('starbucks appbar test'),
+            title: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 8.0),
+                      child: Row(
+                        children: [
+                          Icon(Icons.email_outlined),
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 8.0),
+                            child: Text(
+                              'What\'s new',
+                              style: TextStyle(fontSize: 20),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        Icon(Icons.confirmation_number_outlined),
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 8.0),
+                          child: Text('Coupon', style: TextStyle(fontSize: 20)),
+                        )
+                      ],
+                    ),
+                  ],
+                ),
+                Icon(Icons.notifications_none)
+              ],
+            ),
           ),
           SliverList(
             delegate: SliverChildBuilderDelegate(
@@ -109,6 +138,39 @@ class Starbucks extends StatelessWidget {
             ),
           ),
         ],
+      ),
+      bottomNavigationBar: Theme(
+        data: ThemeData(
+          splashColor: Colors.transparent,
+          highlightColor: Colors.transparent,
+        ),
+        child: BottomNavigationBar(
+          selectedItemColor: Colors.green,
+          backgroundColor: Colors.white,
+          type: BottomNavigationBarType.fixed,
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              label: 'Home',
+              icon: Icon(Icons.home),
+            ),
+            BottomNavigationBarItem(
+              label: 'Pay',
+              icon: Icon(Icons.payment),
+            ),
+            BottomNavigationBarItem(
+              label: 'Order',
+              icon: Icon(Icons.local_cafe_rounded),
+            ),
+            BottomNavigationBarItem(
+              label: 'Shop',
+              icon: Icon(Icons.shopping_bag),
+            ),
+            BottomNavigationBarItem(
+              label: 'Other',
+              icon: Icon(Icons.more_horiz_rounded),
+            ),
+          ],
+        ),
       ),
     );
   }
